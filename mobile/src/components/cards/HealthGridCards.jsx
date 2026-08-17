@@ -35,121 +35,19 @@ export function SleepCard({ hours = 7.5, score = 84, onPress }) {
       onPress={onPress}
     >
       <LinearGradient
-        colors={["#1e1b4b", "#4338ca"]}
+        colors={["#1e1b4b", "#3730a3"]}
         style={styles.tileGradient}
       >
         <View style={styles.topTileRow}>
           <Text style={styles.tileTitle}>Sleep</Text>
           <View style={styles.moonGraphic}>
-            <Ionicons name="moon" size={26} color="#C4B5FD" />
+            <Ionicons name="moon" size={24} color="#C4B5FD" />
           </View>
         </View>
-        <Text style={styles.tileSubtitle}>
-          {hours > 0 ? `${hours}h • Score ${score}` : "Track your sleep"}
-        </Text>
+        <Text style={styles.metricValueLarge}>{hours}h</Text>
+        <Text style={styles.tileSubtitle}>Score {score} • Optimal REM</Text>
       </LinearGradient>
     </TouchableOpacity>
-  );
-}
-
-export function FoodCard({ onPress }) {
-  return (
-    <TouchableOpacity
-      style={styles.gridTile}
-      activeOpacity={0.85}
-      onPress={onPress}
-    >
-      <LinearGradient
-        colors={["#7c2d12", "#ea580c"]}
-        style={styles.tileGradient}
-      >
-        <View style={styles.topTileRow}>
-          <Text style={styles.tileTitle}>Food</Text>
-          <View style={styles.orangeSlice}>
-            <Ionicons name="nutrition" size={28} color="#fed7aa" />
-          </View>
-        </View>
-        <Text style={styles.tileSubtitle}>Ready to log your first meal?</Text>
-      </LinearGradient>
-    </TouchableOpacity>
-  );
-}
-
-export function BodyCompositionCard({ onPress }) {
-  return (
-    <TouchableOpacity
-      style={styles.gridTile}
-      activeOpacity={0.85}
-      onPress={onPress}
-    >
-      <LinearGradient
-        colors={["#0369a1", "#0284c7"]}
-        style={styles.tileGradient}
-      >
-        <View style={styles.topTileRow}>
-          <Text style={styles.tileTitle}>Body composition</Text>
-          <View style={styles.bubbleGraphic}>
-            <MaterialCommunityIcons name="scale-bathroom" size={28} color="#bae6fd" />
-          </View>
-        </View>
-        <Text style={styles.tileSubtitle}>Track your weight and body composition.</Text>
-      </LinearGradient>
-    </TouchableOpacity>
-  );
-}
-
-export function CycleCard({ onPress }) {
-  return (
-    <TouchableOpacity
-      style={styles.gridTile}
-      activeOpacity={0.85}
-      onPress={onPress}
-    >
-      <LinearGradient
-        colors={["#831843", "#db2777"]}
-        style={styles.tileGradient}
-      >
-        <View style={styles.topTileRow}>
-          <Text style={styles.tileTitle}>Cycle tracking</Text>
-          <View style={styles.flowerGraphic}>
-            <MaterialCommunityIcons name="flower" size={28} color="#fbcfe8" />
-          </View>
-        </View>
-        <Text style={styles.tileSubtitle}>Track your cycle.</Text>
-      </LinearGradient>
-    </TouchableOpacity>
-  );
-}
-
-export function WaterCard({ waterMl = 0, targetMl = 2000, onAddWater }) {
-  const progress = Math.min(1, waterMl / targetMl);
-  return (
-    <View style={styles.gridTile}>
-      <View style={[styles.tileGradient, { backgroundColor: "#141e2e" }]}>
-        <View style={styles.topTileRow}>
-          <Text style={styles.tileTitle}>Water</Text>
-          <TouchableOpacity
-            style={styles.waterAddBtn}
-            onPress={onAddWater}
-            activeOpacity={0.7}
-          >
-            <Ionicons name="add" size={16} color="#38bdf8" />
-          </TouchableOpacity>
-        </View>
-
-        <Text style={styles.waterValue}>{waterMl.toLocaleString()}</Text>
-        <Text style={styles.waterTarget}>{targetMl.toLocaleString()} ml</Text>
-
-        <View style={styles.waterProgressBarBg}>
-          <View
-            style={[
-              styles.waterProgressBarFill,
-              { width: `${progress * 100}%` },
-            ]}
-          />
-        </View>
-      </View>
-    </View>
   );
 }
 
@@ -161,22 +59,23 @@ export function HeartRateCard({ bpm = 72, onPress }) {
       onPress={onPress}
     >
       <LinearGradient
-        colors={["#881337", "#e11d48"]}
+        colors={["#881337", "#be123c"]}
         style={styles.tileGradient}
       >
         <View style={styles.topTileRow}>
-          <Text style={styles.tileTitle}>Heart rate</Text>
+          <Text style={styles.tileTitle}>Heart Rate</Text>
           <View style={styles.heartGraphic}>
-            <Ionicons name="heart" size={28} color="#fecdd3" />
+            <Ionicons name="heart" size={24} color="#FECDD3" />
           </View>
         </View>
-        <Text style={styles.tileSubtitle}>Keep track of your heart rate.</Text>
+        <Text style={styles.metricValueLarge}>{bpm} <Text style={styles.metricUnitSmall}>BPM</Text></Text>
+        <Text style={styles.tileSubtitle}>68ms HRV • Calm Zone</Text>
       </LinearGradient>
     </TouchableOpacity>
   );
 }
 
-export function StressCard({ stressLevel = "Low", onPress }) {
+export function StressCard({ stressLevel = "Calm", score = 24, onPress }) {
   return (
     <TouchableOpacity
       style={styles.gridTile}
@@ -184,16 +83,17 @@ export function StressCard({ stressLevel = "Low", onPress }) {
       onPress={onPress}
     >
       <LinearGradient
-        colors={["#78350f", "#d97706"]}
+        colors={["#78350f", "#b45309"]}
         style={styles.tileGradient}
       >
         <View style={styles.topTileRow}>
           <Text style={styles.tileTitle}>Stress</Text>
           <View style={styles.spiralGraphic}>
-            <MaterialCommunityIcons name="weather-windy" size={28} color="#fef08a" />
+            <MaterialCommunityIcons name="weather-windy" size={24} color="#FEF08A" />
           </View>
         </View>
-        <Text style={styles.tileSubtitle}>Learn how to track your stress level.</Text>
+        <Text style={styles.metricValueLarge}>{score}%</Text>
+        <Text style={styles.tileSubtitle}>{stressLevel} • 4-7-8 Pacer</Text>
       </LinearGradient>
     </TouchableOpacity>
   );
@@ -269,6 +169,18 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#FFFFFF",
     maxWidth: "65%",
+  },
+  metricValueLarge: {
+    fontSize: 24,
+    fontWeight: "900",
+    color: "#FFFFFF",
+    marginTop: 4,
+    marginBottom: 2,
+  },
+  metricUnitSmall: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: "rgba(255, 255, 255, 0.7)",
   },
   tileSubtitle: {
     fontSize: 12,

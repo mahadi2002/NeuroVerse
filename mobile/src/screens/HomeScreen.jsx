@@ -36,6 +36,9 @@ export default function HomeScreen({
   onOpenQuickAdd,
   onOpenAria,
   onOpenCrisis,
+  onOpenStress,
+  onOpenSleep,
+  onOpenHeartRate,
 }) {
   const [waterMl, setWaterMl] = useState(750);
   const [steps, setSteps] = useState(822);
@@ -193,12 +196,23 @@ export default function HomeScreen({
       {/* 2-Column Health Tiles Grid (Physical Health & Biometrics) */}
       <View style={styles.gridContainer}>
         <View style={styles.gridRow}>
-          <StressCard stressLevel="Balanced" onPress={() => onNavigateTab("mood")} />
-          <SleepCard hours={7.5} score={84} onPress={onOpenQuickAdd} />
+          <StressCard
+            stressLevel="Calm"
+            score={24}
+            onPress={onOpenStress}
+          />
+          <SleepCard
+            hours={7.5}
+            score={84}
+            onPress={onOpenSleep}
+          />
         </View>
 
         <View style={styles.gridRow}>
-          <HeartRateCard bpm={72} onPress={onOpenQuickAdd} />
+          <HeartRateCard
+            bpm={72}
+            onPress={onOpenHeartRate}
+          />
           <WaterCard
             waterMl={waterMl}
             targetMl={2000}

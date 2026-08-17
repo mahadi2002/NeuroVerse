@@ -24,6 +24,9 @@ import BookTherapistModal from "./src/components/modals/BookTherapistModal";
 import CreatePostModal from "./src/components/modals/CreatePostModal";
 import AddHabitModal from "./src/components/modals/AddHabitModal";
 import CourseLessonModal from "./src/components/modals/CourseLessonModal";
+import StressDetailModal from "./src/components/modals/StressDetailModal";
+import SleepDetailModal from "./src/components/modals/SleepDetailModal";
+import HeartRateDetailModal from "./src/components/modals/HeartRateDetailModal";
 
 function MainApp() {
   const { isAuthenticated } = useAuth();
@@ -38,6 +41,9 @@ function MainApp() {
   const [isAriaVoiceOpen, setIsAriaVoiceOpen] = useState(false);
   const [isAddHabitOpen, setIsAddHabitOpen] = useState(false);
   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
+  const [isStressOpen, setIsStressOpen] = useState(false);
+  const [isSleepOpen, setIsSleepOpen] = useState(false);
+  const [isHeartRateOpen, setIsHeartRateOpen] = useState(false);
   const [selectedTherapist, setSelectedTherapist] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -59,12 +65,16 @@ function MainApp() {
       setActiveTab("mood");
     } else if (optionId === "habit") {
       setActiveTab("habits");
-    } else if (optionId === "breathe" || optionId === "crisis") {
+    } else if (optionId === "breathe") {
+      setIsStressOpen(true);
+    } else if (optionId === "crisis") {
       setActiveTab("crisis");
     } else if (optionId === "therapist") {
       setActiveTab("therapists");
     } else if (optionId === "aria") {
       setIsAriaOpen(true);
+    } else if (optionId === "sleep") {
+      setIsSleepOpen(true);
     }
   };
 
@@ -93,6 +103,9 @@ function MainApp() {
               onOpenQuickAdd={() => setIsQuickAddOpen(true)}
               onOpenAria={() => setIsAriaOpen(true)}
               onOpenCrisis={() => setActiveTab("crisis")}
+              onOpenStress={() => setIsStressOpen(true)}
+              onOpenSleep={() => setIsSleepOpen(true)}
+              onOpenHeartRate={() => setIsHeartRateOpen(true)}
             />
           )}
 
@@ -203,6 +216,24 @@ function MainApp() {
           visible={!!selectedCourse}
           course={selectedCourse}
           onClose={() => setSelectedCourse(null)}
+        />
+
+        {/* Dedicated Health Metric Modals */}
+        <StressDetailModal
+          visible={isStressOpen}
+          onClose={() => setIsStressOpen(false)}
+          onOpenAria={() => setIsAriaOpen(true)}
+        />
+
+        <SleepDetailModal
+          visible={isSleepOpen}
+          onClose={() => setIsSleepOpen(false)}
+        />
+
+        <HeartRateDetailModal
+          visible={isHeartRateOpen}
+          onClose={() => setIsHeartRateOpen(false)}
+          bpm={72}
         />
       </View>
     </SafeAreaView>
