@@ -9,8 +9,9 @@
     "backgroundColor": "#070E18",
     "primaryColor": "#6366F1",
     "splash": {
-      "backgroundColor": "#070E18",
-      "resizeMode": "contain"
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#070E18"
     },
     "ios": {
       "supportsTablet": true,
@@ -45,6 +46,9 @@
       "eas": {
         "projectId": "e7e0ed45-be3a-45fc-9b10-4fb7c508f388"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
