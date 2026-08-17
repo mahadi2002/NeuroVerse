@@ -8,11 +8,6 @@
     "userInterfaceStyle": "dark",
     "backgroundColor": "#070E18",
     "primaryColor": "#6366F1",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#070E18"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.neurolink.app",
