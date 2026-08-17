@@ -99,6 +99,41 @@ export function StressCard({ stressLevel = "Calm", score = 24, onPress }) {
   );
 }
 
+export function WaterCard({ waterMl = 750, targetMl = 2000, onAddWater }) {
+  const progress = Math.min(1, waterMl / targetMl);
+  return (
+    <View style={styles.gridTile}>
+      <LinearGradient
+        colors={["#0c4a6e", "#0284c7"]}
+        style={styles.tileGradient}
+      >
+        <View style={styles.topTileRow}>
+          <Text style={styles.tileTitle}>Hydration</Text>
+          <TouchableOpacity
+            style={styles.waterAddBtn}
+            onPress={onAddWater}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="add" size={16} color="#38bdf8" />
+          </TouchableOpacity>
+        </View>
+
+        <Text style={styles.metricValueLarge}>{waterMl.toLocaleString()}</Text>
+        <Text style={styles.tileSubtitle}>{targetMl.toLocaleString()} ml Goal</Text>
+
+        <View style={styles.waterProgressBarBg}>
+          <View
+            style={[
+              styles.waterProgressBarFill,
+              { width: `${progress * 100}%` },
+            ]}
+          />
+        </View>
+      </LinearGradient>
+    </View>
+  );
+}
+
 export function BloodOxygenCard({ onPress }) {
   return (
     <TouchableOpacity
