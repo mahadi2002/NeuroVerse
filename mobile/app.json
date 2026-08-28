@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "NeuroLink",
+    "slug": "neurolink-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#070E18",
+    "primaryColor": "#6366F1",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.neurolink.app",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ],
+        "NSMicrophoneUsageDescription": "NeuroLink uses the microphone for real-time voice conversations with Aria AI."
+      }
+    },
+    "android": {
+      "package": "com.neurolink.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#070E18",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "RECORD_AUDIO",
+        "INTERNET",
+        "VIBRATE",
+        "WAKE_LOCK"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e7e0ed45-be3a-45fc-9b10-4fb7c508f388"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

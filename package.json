@@ -7,6 +7,12 @@
     "server": "npm run dev --prefix server",
     "client": "npm run dev --prefix client",
     "ml": "cd ml-service && python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload",
+    "mobile": "npm start --prefix mobile",
+    "mobile:tunnel": "npm run start:tunnel --prefix mobile",
+    "mobile:clear": "npm run start:clear --prefix mobile",
+    "mobile:android": "npm run android --prefix mobile",
+    "mobile:ios": "npm run ios --prefix mobile",
+    "mobile:build:apk": "npm run build:apk --prefix mobile",
     "seed": "npm run seed --prefix server"
   },
   "dependencies": {
